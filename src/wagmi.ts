@@ -1,11 +1,8 @@
 "use client";
 import { connectorsForWallets } from "@rainbow-me/rainbowkit";
 import {
-  argentWallet,
   coinbaseWallet,
-  ledgerWallet,
   metaMaskWallet,
-  rabbyWallet,
   rainbowWallet,
   safeWallet,
   walletConnectWallet,
@@ -31,6 +28,7 @@ import {
   // bscTestnet,
   gnosis,
 } from "wagmi/chains";
+// import { SafeConnector } from 'wagmi/connectora';
 
 // import linea_logo from "../public/img/linea_logo.png";
 // import lineaTesnet_logo from "../public/img/lineaTesnet_logo.png";
@@ -50,13 +48,13 @@ const connectors = connectorsForWallets(
       groupName: "Recommended",
       wallets: [
         metaMaskWallet,
-        rainbowWallet,
-        walletConnectWallet,
-        ledgerWallet,
-        rabbyWallet,
-        coinbaseWallet,
-        argentWallet,
         safeWallet,
+        walletConnectWallet,
+        rainbowWallet,
+        // ledgerWallet,
+        // rabbyWallet,
+        coinbaseWallet,
+        // argentWallet,
       ],
     },
   ],
