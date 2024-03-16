@@ -46,6 +46,20 @@ const Header: FC = () => {
               paddingRight: "20px",
               color: `${colorMode === "light" ? "#250" : "white"}`,
             }}
+            href={"/demo"}
+          >
+            <Heading as={"h2"} fontSize={"1rem"}>
+              Demo
+            </Heading>
+          </Link>
+        )}
+        {!isTablet && (
+          <Link
+            style={{
+              textDecoration: "underline",
+              paddingRight: "20px",
+              color: `${colorMode === "light" ? "#250" : "white"}`,
+            }}
             href={"/positions"}
           >
             <Heading as={"h2"} fontSize={"1rem"}>
