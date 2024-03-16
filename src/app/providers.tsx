@@ -3,8 +3,10 @@ import { type ReactNode, useState, useEffect } from "react";
 
 import { CacheProvider } from "@chakra-ui/next-js";
 import { extendTheme, ChakraProvider } from "@chakra-ui/react";
-import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+// @ts-expect-error: Theme is not exported by @rainbow-me/rainbowkit
+import { RainbowKitProvider, darkTheme, Theme } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import merge from "lodash.merge";
 import { WagmiProvider } from "wagmi";
 
 import { wagmiConfig } from "@/wagmi";
@@ -19,15 +21,20 @@ export function Providers({ children }: { children: ReactNode }) {
   const theme = extendTheme({ initialColorMode: "dark", useSystemColorMode: false });
 
   const appInfo = {
-    appName: "Azerty Finance",
+    appName: "Kelza Markets",
   };
+  const myTheme = merge(darkTheme(), {
+    colors: {
+      accentColor: "#250",
+    },
+  } as Theme);
 
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
         <CacheProvider>
           <ChakraProvider resetCSS theme={theme}>
-            <RainbowKitProvider coolMode appInfo={appInfo}>
+            <RainbowKitProvider coolMode appInfo={appInfo} theme={myTheme}>
               {mounted && children}
             </RainbowKitProvider>
           </ChakraProvider>

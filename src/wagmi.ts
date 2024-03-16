@@ -60,7 +60,7 @@ const connectors = connectorsForWallets(
       ],
     },
   ],
-  { appName: "Azerty Finance", projectId: walletConnectProjectId },
+  { appName: "Kelza Markets", projectId: walletConnectProjectId },
 );
 
 // Fix missing icons

@@ -7,3 +7,4 @@ export { default as SignMessage } from "./SignMessage";
 export { default as TransferNative } from "./TransferNative";
 export { default as BalanceMoneriumEUR } from "./BalanceMoneriumEUR";
 export { default as TransferEURe } from "./TransferEURe";
+export { default as PositionDetails } from "./PositionDetails";

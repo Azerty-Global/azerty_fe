@@ -1,16 +1,7 @@
 // components/MainPane.tsx
 import { type FC } from "react";
 
-import {
-  Box,
-  // Divider,
-  Flex,
-  Heading,
-  useColorMode,
-  Text,
-  Button,
-} from "@chakra-ui/react";
-// import { useAccount } from "wagmi";
+import { Box, Flex, Heading, useColorMode, Text, Button } from "@chakra-ui/react";
 
 import BalanceMoneriumEUR from "@/components/atomicComponents/BalanceMoneriumEUR";
 import styles from "@/styles/mainPane.module.css";
@@ -25,7 +16,7 @@ const MainPane: FC = () => {
       border={colorMode === "light" ? "none" : "1px solid rgba(152, 161, 192, 0.24)"}
     >
       <Heading as="h2" fontSize={"2rem"} mb={10} className="text-shadow">
-        Azerty Markets
+        Kelza Markets
       </Heading>
 
       <Box px={12}></Box>
@@ -33,8 +24,8 @@ const MainPane: FC = () => {
       <Flex className={styles.content}>
         {/*<Status />*/}
         <Text>
-          Azerty Markets is a decentralized market makers for Gnosis Pay users who wants to use
-          their yield bearing tokens in their payments.
+          Kelza Markets is a decentralized market makers for Gnosis Pay users who wants to use their
+          yield bearing tokens in their payments.
         </Text>
         <Text>
           By depositing you will earn the fee generated from the payments on top of EURe Lending APY
@@ -42,6 +33,9 @@ const MainPane: FC = () => {
         <Box>
           <BalanceMoneriumEUR />
         </Box>
+        <Text>
+          <b>Estimated APY</b>: 10% + 8% (EURe Lending APY + Payment Fee APY)
+        </Text>
         <Button
           mx={6}
           py={8}

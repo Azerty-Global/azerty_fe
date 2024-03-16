@@ -1,1 +1,1 @@
-export { default as MainPane2 } from "./DepositPane";
+export { default as DepositPane } from "./DepositPane";

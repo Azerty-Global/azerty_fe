@@ -4,6 +4,7 @@ import { type FC } from "react";
 import { HStack, Heading } from "@chakra-ui/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
+import Link from "next/link";
 
 import { useWindowSize } from "@/hooks/useWindowSize";
 
@@ -22,16 +23,35 @@ const Header: FC = () => {
       zIndex={10}
       justifyContent={"space-between"}
     >
-      <HStack>
+      <HStack
+        onClick={() => {
+          window.open("/", "_self");
+        }}
+        cursor={"pointer"}
+      >
         <Image src={logo.src} alt="logo" width={45} height={45} />
         {!isTablet && (
           <Heading as="h1" fontSize={"1.5rem"} className="text-shadow">
-            Azerty Finance
+            Kelza Markets
           </Heading>
         )}
       </HStack>
 
       <HStack>
+        {!isTablet && (
+          <Link
+            style={{
+              textDecoration: "underline",
+              paddingRight: "20px",
+              color: "#250",
+            }}
+            href={"/positions"}
+          >
+            <Heading as={"h2"} fontSize={"1rem"}>
+              Your Positions
+            </Heading>
+          </Link>
+        )}
         <ConnectButton />
         <DarkModeButton />
       </HStack>

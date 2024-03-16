@@ -10,9 +10,9 @@ import { Providers } from "./providers";
 const open_sans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "azerty finance",
-  applicationName: "azerty finance",
-  description: "azerty finance",
+  title: "kelza markets",
+  applicationName: "kelza markets",
+  description: "kelza markets",
   authors: {
     name: "Azerty Global",
     url: "https://github.com/Azerty-Global/azerty_sc",
