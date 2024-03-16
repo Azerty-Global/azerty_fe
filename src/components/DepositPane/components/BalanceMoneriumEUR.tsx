@@ -1,9 +1,10 @@
 import type { FC } from "react";
 
+import { erc20Abi, formatUnits } from "viem";
 import { useAccount, useReadContracts } from "wagmi";
 
 import { InfoText } from "@/components";
-import { erc20Abi, formatUnits } from "viem";
+
 import addresses from "../../../addresses";
 
 const Balance: FC = (): JSX.Element => {
@@ -31,10 +32,7 @@ const Balance: FC = (): JSX.Element => {
       },
     ],
   });
-  console.log("result", data);
 
-  // @ts-ignore
-  // const displayBalance = formatUnits(result[0]?.data, result[1]?.data);
   const displayBalance = data ? formatUnits(data[0], data[1]) : "0";
 
   return <InfoText label="EURe Balance" value={displayBalance} />;

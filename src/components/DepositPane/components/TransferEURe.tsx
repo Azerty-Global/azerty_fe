@@ -10,14 +10,13 @@ import {
   NumberInputStepper,
   VStack,
 } from "@chakra-ui/react";
+import { readContract, readContracts } from "@wagmi/core";
 import { erc20Abi, erc4626Abi, formatUnits, parseEther } from "viem";
 import { useAccount, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 
 import addresses from "@/addresses";
-
 import { useNotify } from "@/hooks";
 import { wagmiConfig } from "@/wagmi";
-import { readContract, readContracts } from "@wagmi/core";
 
 const TransferEURe: FC = () => {
   // const { data, error, isPending, isError, sendTransaction } = useSendTransaction();
@@ -53,7 +52,7 @@ const TransferEURe: FC = () => {
       // console.log("result", result);
       if (result[0]) {
         // console.log("result 0", result[0].result);
-        // @ts-ignore
+        // @ts-expect-error: data will be full
         setAmountInWallet(parseFloat(formatUnits(result[0].result, result[1].result)));
       }
     });

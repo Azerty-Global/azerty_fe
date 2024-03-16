@@ -12,8 +12,8 @@ import {
 } from "@chakra-ui/react";
 // import { useAccount } from "wagmi";
 
-import styles from "@/styles/mainPane.module.css";
 import BalanceMoneriumEUR from "@/components/MainPane2/components/BalanceMoneriumEUR";
+import styles from "@/styles/mainPane.module.css";
 //
 // import {
 //   Status,
