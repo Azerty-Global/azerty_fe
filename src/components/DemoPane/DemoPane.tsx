@@ -18,6 +18,7 @@ const RealDemo: FC = () => {
   const { address } = useAccount();
   const sdai_address = addresses["SDAI"];
   const credit_module = addresses["CREDIT_MODULE"];
+  const eure_receiver = addresses["EURe_RECEIVER"];
   const [amountInWallet, setAmountInWallet] = useState<string>("0");
   const { data, error, isError, writeContract } = useWriteContract();
   const { data: receipt } = useWaitForTransactionReceipt({ hash: data });
@@ -57,7 +58,6 @@ const RealDemo: FC = () => {
     }).then((result) => {
       if (result[0]) {
         const arr: any = result[0].result;
-        console.log("arr", arr);
         setCanSafePay(arr[0]);
         setConversionRate(arr[2]);
         setSelectedCurrency(arr[1]);
@@ -88,7 +88,7 @@ const RealDemo: FC = () => {
         address,
         parseEther(coffeeEURAmount),
         selectedCurrency as `0x${string}`,
-        "0xAaE8Bed6675a54c52b5731557075b39837F20c09",
+        eure_receiver as `0x${string}`,
         conversionRate,
       ],
     });
