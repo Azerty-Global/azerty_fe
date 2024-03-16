@@ -4,7 +4,7 @@ import { Box, Flex } from "@chakra-ui/react";
 import {
   Footer,
   Header,
-  // MainPane2,
+  // MainPane,
   // MainPane
 } from "@/components";
 import DepositPane from "@/components/DepositPane/DepositPane";

@@ -5,7 +5,7 @@ import { useAccount, useReadContracts } from "wagmi";
 
 import { InfoText } from "@/components";
 
-import addresses from "../../../addresses";
+import addresses from "../../addresses";
 
 const Balance: FC = (): JSX.Element => {
   const { address } = useAccount();

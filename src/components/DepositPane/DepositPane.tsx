@@ -1,33 +1,15 @@
 // components/MainPane.tsx
 import { type FC } from "react";
 
-import {
-  Box,
-  // Divider,
-  Flex,
-  Heading,
-  useColorMode,
-  Text,
-} from "@chakra-ui/react";
-// import { useAccount } from "wagmi";
+import { Box, Flex, Heading, useColorMode, Text } from "@chakra-ui/react";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useAccount } from "wagmi";
 
-import TransferEURe from "@/components/DepositPane/components/TransferEURe";
-import BalanceMoneriumEUR from "@/components/MainPane2/components/BalanceMoneriumEUR";
+import { BalanceMoneriumEUR, TransferEURe } from "@/components/atomicComponents";
 import styles from "@/styles/mainPane.module.css";
-//
-// import {
-//   Status,
-//   // Address,
-//   // Chain,
-//   // Balance,
-//   // BlockNumber,
-//   // TransferNative,
-//   // SignMessage,
-// } from "./components";
-// import {BlockNumber} from "@/components/MainPane/components";
 
 const DepositPane: FC = () => {
-  // const { isConnected } = useAccount();
+  const { isConnected } = useAccount();
   const { colorMode } = useColorMode();
 
   return (
@@ -48,7 +30,7 @@ const DepositPane: FC = () => {
         <Box>
           <BalanceMoneriumEUR />
         </Box>
-        <TransferEURe />
+        {isConnected ? <TransferEURe /> : <ConnectButton />}
       </Flex>
     </Box>
   );
