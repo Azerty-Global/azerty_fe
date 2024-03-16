@@ -1,7 +1,7 @@
 "use client";
 import { type FC } from "react";
 
-import { HStack, Heading } from "@chakra-ui/react";
+import { HStack, Heading, useColorMode } from "@chakra-ui/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,6 +13,7 @@ import { DarkModeButton } from "../DarkModeButton";
 
 const Header: FC = () => {
   const { isTablet } = useWindowSize();
+  const { colorMode } = useColorMode();
 
   return (
     <HStack
@@ -43,7 +44,7 @@ const Header: FC = () => {
             style={{
               textDecoration: "underline",
               paddingRight: "20px",
-              color: "#250",
+              color: `${colorMode === "light" ? "#250" : "white"}`,
             }}
             href={"/positions"}
           >
