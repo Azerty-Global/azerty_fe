@@ -67,7 +67,11 @@ const connectors = connectorsForWallets(
 // const customZkSyncSepoliaTestnet = { ...zkSyncSepoliaTestnet, iconUrl: zksync_logo.src };
 // const customLinea = { ...linea, iconUrl: linea_logo.src };
 // const customLineaTestnet = { ...lineaTestnet, iconUrl: lineaTesnet_logo.src };
-const customGnosis = { ...gnosis, iconUrl: "https://assets-global.website-files.com/63692bf32544bee8b1836ea6/636a6e764bdb11a70341fab4_owl-forest-p-500.png" };
+const customGnosis = {
+  ...gnosis,
+  iconUrl:
+    "https://assets-global.website-files.com/63692bf32544bee8b1836ea6/636a6e764bdb11a70341fab4_owl-forest-p-500.png",
+};
 
 const transports: Record<number, Transport> = {
   [mainnet.id]: http(),
@@ -106,7 +110,7 @@ export const wagmiConfig = createConfig({
     // baseGoerli,
     // bsc,
     // bscTestnet,
-      customGnosis,
+    customGnosis,
   ],
   connectors,
   transports,

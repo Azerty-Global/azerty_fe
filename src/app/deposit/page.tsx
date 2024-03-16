@@ -4,9 +4,10 @@ import { Box, Flex } from "@chakra-ui/react";
 import {
   Footer,
   Header,
-  MainPane2,
+  // MainPane2,
   // MainPane
 } from "@/components";
+import DepositPane from "@/components/DepositPane/DepositPane";
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
       <Header />
 
       <Box as="main" flex={1} p={4}>
-        <MainPane2 />
+        <DepositPane />
       </Box>
 
       <Footer />
