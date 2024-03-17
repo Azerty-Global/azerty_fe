@@ -101,7 +101,7 @@ const PositionDetails: FC = () => {
       {/*<AddressInput receiver={receiver} setReceiver={setReceiver} />*/}
 
       <VStack>
-        <InfoText label="EURe in Vault" value={amountInWallet} />
+        <InfoText label="EURe in Wallet" value={amountInWallet} />
         <InfoText label="Shares of Vault" value={shares} />
         <InfoText label="Assets in Vault" value={assets} />
       </VStack>

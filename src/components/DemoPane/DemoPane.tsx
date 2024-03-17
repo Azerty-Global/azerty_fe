@@ -163,7 +163,7 @@ const RealDemo: FC = () => {
             loadingText={"waiting for approval on safe"}
             onClick={handleApprove}
           >
-            Active sDAI on your Card
+            Activate sDAI on your Card
           </Button>
         </Box>
       )}
