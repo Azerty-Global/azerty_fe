@@ -29,6 +29,7 @@ const RealDemo: FC = () => {
   const [canSafePay, setCanSafePay] = useState<boolean>(false);
   const [isApproveNeeded, setIsApproveNeeded] = useState<boolean>(true);
   const [isLocking, setIsLocking] = useState<boolean>(false);
+  const [isPaid, setIsPaid] = useState<boolean>(false);
 
   useEffect(() => {
     readContract(wagmiConfig, {
@@ -81,7 +82,7 @@ const RealDemo: FC = () => {
     }).then((result) => {
       if (result[0]) {
         const arr: any = result[0].result;
-        console.log("arr", arr);
+        // console.log("arr", arr);
         setConversionRate(arr[2]);
         setSelectedCurrency(arr[1]);
         // setIsLocking to false with time delay of 1.2 second
@@ -98,7 +99,7 @@ const RealDemo: FC = () => {
       abi: erc20Abi,
       address: selectedCurrency as `0x${string}`,
       functionName: "approve",
-      args: [credit_module as `0x${string}`, parseEther(coffeeEURAmount)],
+      args: [credit_module as `0x${string}`, parseEther("100")],
     });
   };
 
@@ -122,6 +123,9 @@ const RealDemo: FC = () => {
         conversionRate,
       ],
     });
+    setTimeout(() => {
+      setIsPaid(true);
+    }, 1500);
   };
 
   useEffect(() => {
@@ -175,9 +179,10 @@ const RealDemo: FC = () => {
                 isLoading={isLoading || isPending}
                 colorScheme={"green"}
                 loadingText={"waiting for transaction execution on safe"}
+                isDisabled={isPaid}
                 onClick={handleCoffee}
               >
-                Pay €0.1 for Coffee with sDAI
+                {isPaid ? "Your coffee is paid!" : "Pay €0.1 for Coffee with sDAI"}
               </Button>
             ) : (
               <Button
@@ -193,8 +198,9 @@ const RealDemo: FC = () => {
         </Box>
       )}
       {!isLocking && conversionRate && selectedCurrency && (
+        // hacky approach for getting 1euro conversion rate to 0.1euro by decimal manipulation
         <Box>
-          Purchase {coffeeEURAmount} EUR for {formatUnits(conversionRate, 18)} is locked!
+          Purchase {coffeeEURAmount} EUR for {formatUnits(conversionRate, 19)} is locked!
         </Box>
       )}
     </Box>
